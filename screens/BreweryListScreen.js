@@ -15,7 +15,7 @@ import PlatformInfo from '../components/PlatformInfo';
 import { typeColor, typeLabel, initials } from '../utils/breweryType';
 import { palette, serif } from '../utils/theme';
 
-const API_URL = 'https://api.openbrewerydb.org/v1/breweries?per_page=50';
+const API_URL = 'https://api.openbrewerydb.org/v1/breweries';
 const TEST_DELAY_MS = 0;
 
 const cardMargin = Platform.select({ android: 8, ios: 16, default: 12 });
