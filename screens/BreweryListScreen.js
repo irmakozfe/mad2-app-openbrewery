@@ -173,6 +173,11 @@ export default function BreweryListScreen({ navigation }) {
          onPress={() => navigation.navigate('Sensors')}
         />
 
+        <Appbar.Action
+          icon= "map-marker"
+          onPress= {() => navigation.navigate('Location')}
+        />
+
       </Appbar.Header>
 
       <Searchbar
