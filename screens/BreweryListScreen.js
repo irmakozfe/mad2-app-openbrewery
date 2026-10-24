@@ -167,6 +167,12 @@ export default function BreweryListScreen({ navigation }) {
           onPress={() => navigation.navigate('Linking')}
         />
 
+        <Appbar.Action
+          icon= "axis-arrow"
+          color={palette.amber}
+         onPress={() => navigation.navigate('Sensors')}
+        />
+
       </Appbar.Header>
 
       <Searchbar

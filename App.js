@@ -9,6 +9,7 @@ import BreweryListScreen from './screens/BreweryListScreen';
 import BreweryDetailsScreen from './screens/BreweryDetailsScreen';
 import { theme, palette } from './utils/theme';
 import LinkingScreen from './screens/LinkingScreen';
+import SensorsScreen from './screens/SensorsScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +28,7 @@ export default function App() {
             <Stack.Screen name="Breweries" component={BreweryListScreen} />
             <Stack.Screen name="Details" component={BreweryDetailsScreen} />
             <Stack.Screen name="Linking" component={LinkingScreen} />
+            <Stack.Screen name="Sensors" component={SensorsScreen}/>
           </Stack.Navigator>
         </NavigationContainer>
       </PaperProvider>
