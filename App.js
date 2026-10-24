@@ -8,6 +8,7 @@ import { StatusBar } from 'expo-status-bar';
 import BreweryListScreen from './screens/BreweryListScreen';
 import BreweryDetailsScreen from './screens/BreweryDetailsScreen';
 import { theme, palette } from './utils/theme';
+import LinkingScreen from './screens/LinkingScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +26,7 @@ export default function App() {
           <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Breweries" component={BreweryListScreen} />
             <Stack.Screen name="Details" component={BreweryDetailsScreen} />
+            <Stack.Screen name="Linking" component={LinkingScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </PaperProvider>

@@ -11,7 +11,6 @@ import {
   Icon,
 } from 'react-native-paper';
 
-import PlatformInfo from '../components/PlatformInfo';
 import { typeColor, typeLabel, initials } from '../utils/breweryType';
 import { palette, serif } from '../utils/theme';
 
@@ -162,9 +161,13 @@ export default function BreweryListScreen({ navigation }) {
     <View style={styles.container}>
       <Appbar.Header>
         <Appbar.Content title={appbarTitle} titleStyle={styles.appbarTitle} />
-      </Appbar.Header>
+        <Appbar.Action
+          icon="card-account-phone"
+          color={palette.amber}
+          onPress={() => navigation.navigate('Linking')}
+        />
 
-      <PlatformInfo />
+      </Appbar.Header>
 
       <Searchbar
         placeholder="Search by name, city or country"

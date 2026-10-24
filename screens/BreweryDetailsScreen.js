@@ -42,7 +42,6 @@ export default function BreweryDetailsScreen({ route, navigation }) {
       </Appbar.Header>
 
       <ScrollView contentContainerStyle={styles.content}>
-        {/* The card is designed like a beer bottle label */}
         <Card mode="contained" style={[styles.card, styles.shadow]}>
           <View style={styles.label}>
             <View style={[styles.coaster, { borderColor: color }]}>
@@ -98,6 +97,16 @@ export default function BreweryDetailsScreen({ route, navigation }) {
             left={(props) => <List.Icon {...props} icon="crosshairs-gps" color={palette.amber} />}
           />
         </Card>
+
+        <Button
+          mode="contained"
+          icon="card-account-phone"
+          style={styles.contactButton}
+          onPress={() => navigation.navigate('Linking', { brewery })}
+        >
+          Contact brewery
+        </Button>
+
       </ScrollView>
     </View>
   );
@@ -141,6 +150,8 @@ const styles = StyleSheet.create({
   divider: { backgroundColor: palette.oak, marginHorizontal: 12 },
   itemTitle: { color: palette.foamMuted, fontSize: 12, letterSpacing: 1, textTransform: 'uppercase' },
   itemValue: { color: palette.foam, fontSize: 15 },
+  contactButton: { marginTop: 16 },
+
 
   shadow: Platform.select({
     ios: {
