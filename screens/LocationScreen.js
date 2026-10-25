@@ -5,18 +5,21 @@ import * as Location from 'expo-location';
 
 export default function LocationScreen(){
     const [message, setMessage] = useState("Location not requested yet");
+    const [location, setLocation] = useState(null);
+    const [permission, setPermission] = useState(null);
 
     const getLocation = async () => {
-        const {status} = await Location.requestForegroundPermissionsAsync();
-
-        if (status !== "granted"){
+        const result = await Location.requestForegroundPermissionsAsync();
+        setPermission(result);
+        if (result.status!== "granted"){
             setMessage("Permission denied");
             return;
         }
 
+        setMessage("Getting Location...");
         const {coords} = await Location.getCurrentPositionAsync({});
-
-        setMessage(`Lat: ${coords.latitude.toFixed(5)}, Lon: ${coords.longitude.toFixed(5)}`);
+        setLocation(coords);
+        setMessage("Location received!");
     }
 
 
@@ -25,6 +28,17 @@ export default function LocationScreen(){
                 <Card>
                     <Card.Content>
                         <Text>{message}</Text>
+                        {location && (
+                            <>
+                                <Text>Latitude: {location.latitude.toFixed(5)}</Text>
+                                <Text>Longitude: {location.longitude.toFixed(5)}</Text>
+                            </>
+                        )}
+                        { permission && (
+                            <Text>
+                                status: {permission.status}, granted: {String(permission.granted)}, canAskAgain: {String(permission.canAskAgain)}
+                            </Text>
+                        )}
                     </Card.Content>
                     <Card.Actions>
                         <Button mode = "contained" onPress={getLocation}>Use my location</Button>
